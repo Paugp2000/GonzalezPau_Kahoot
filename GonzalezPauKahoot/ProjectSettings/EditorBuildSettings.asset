@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MenuPrincipal.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MenuErrores.unity
+    guid: 130de2ce5adfade41afc1dec18302f79
+  - enabled: 1
+    path: Assets/Scenes/MenuPuntuaciones.unity
+    guid: f2e597d83f0fe334aae0f8b8882735e0
+  - enabled: 1
+    path: Assets/Scenes/MenuSeleccionDeKahoot.unity
+    guid: 467d14e5769281447b10247a8e2c7f59
+  - enabled: 1
+    path: Assets/Scenes/MenuSobreMi.unity
+    guid: 63766a8de7989df4abd966ff50e8b7da
   m_configObjects: {}
