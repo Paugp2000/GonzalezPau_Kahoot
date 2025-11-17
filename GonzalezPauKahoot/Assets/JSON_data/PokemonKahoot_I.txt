@@ -1,0 +1,40 @@
+{
+  "Quiz": [
+    {
+      "type": "singleSelect",
+      "question": "¿Cuál es el Pokémon número 25 en la Pokédex?",
+      "options": ["Charmander", "Bulbasaur", "Pikachu", "Squirtle"],
+      "answer": [2],
+      "explanation": "El número 25 en la Pokédex es Pikachu."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Qué tipo de Pokémon es Charizard?",
+      "options": ["Fuego/Volador", "Dragón", "Fuego puro", "Volador puro"],
+      "answer": [0],
+      "explanation": "Charizard es de tipo Fuego/Volador."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Cuál es la evolución final de Bulbasaur?",
+      "options": ["Ivysaur", "Venusaur", "Leafeon", "Exeggutor"],
+      "answer": [1],
+      "explanation": "Bulbasaur evoluciona a Ivysaur y luego a Venusaur."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Qué Pokémon legendario habita en el mar?",
+      "options": ["Zapdos", "Mewtwo", "Lugia", "Articuno"],
+      "answer": [2],
+      "explanation": "Lugia es un Pokémon legendario que habita en el mar."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Cuál es el Pokémon inicial de la región de Hoenn de tipo fuego?",
+      "options": ["Torchic", "Cyndaquil", "Chimchar", "Fennekin"],
+      "answer": [0],
+      "explanation": "Torchic es el inicial de tipo fuego en Hoenn."
+    }
+  ],
+  "Title": "Quiz Kahoot Pokémon",
+  "Type": "quiz"
