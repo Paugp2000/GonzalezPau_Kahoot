@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KahootSelector : MonoBehaviour
 {
     public Transform contentPanel; // Assigna el Content del ScrollView
     public GameObject kahootButtonPrefab; // Prefab del botó
+    public string kahootFileLoaded;
+    public GameObject kahootController;
+    public Kahoot kahootSelect;
 
     void Start()
     {
@@ -31,6 +35,9 @@ public class KahootSelector : MonoBehaviour
 
             newButton.GetComponent<Button>().onClick.AddListener(() => {
                 SelectKahoot(file);
+                kahootFileLoaded = file;
+                DontDestroyOnLoad(kahootController);
+                SceneManager.LoadScene(5);
             });
         }
     }
@@ -38,6 +45,13 @@ public class KahootSelector : MonoBehaviour
     void SelectKahoot(string filePath)
     {
         Debug.Log("Kahoot seleccionat: " + filePath);
-        // Aquí pots carregar el JSON i passar a l’escena de joc
+        kahootSelect = LoadKahoot(filePath);
+    }
+
+    public static Kahoot LoadKahoot(string filePath)
+    {
+        string json = File.ReadAllText(filePath);
+        Kahoot kahoot = JsonUtility.FromJson<Kahoot>(json);
+        return kahoot;
     }
 }

@@ -1,0 +1,41 @@
+{
+  "Quiz": [
+    {
+      "type": "singleSelect",
+      "question": "¿En qué año se lanzó Fortnite en modo Battle Royale?",
+      "options": ["2015", "2017", "2018", "2019"],
+      "answer": [1],
+      "explanation": "Fortnite Battle Royale se lanzó en septiembre de 2017."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Cuál es el nombre del campeón más icónico de League of Legends?",
+      "options": ["Ahri", "Yasuo", "Teemo", "Lux"],
+      "answer": [1],
+      "explanation": "Yasuo es uno de los campeones más populares y reconocibles de League of Legends."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Qué estudio desarrolló Elden Ring junto a George R. R. Martin?",
+      "options": ["CD Projekt Red", "FromSoftware", "Bethesda", "Capcom"],
+      "answer": [1],
+      "explanation": "Elden Ring fue desarrollado por FromSoftware con colaboración de George R. R. Martin."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Cuál es el nombre del protagonista de la saga The Witcher?",
+      "options": ["Geralt de Rivia", "Ezio Auditore", "Kratos", "Arthur Morgan"],
+      "answer": [0],
+      "explanation": "El protagonista de The Witcher es Geralt de Rivia, un brujo cazador de monstruos."
+    },
+    {
+      "type": "singleSelect",
+      "question": "¿Qué consola introdujo el mando con pantalla táctil llamado Wii U GamePad?",
+      "options": ["Nintendo Switch", "Nintendo Wii U", "PlayStation Vita", "Nintendo DS"],
+      "answer": [1],
+      "explanation": "El Wii U GamePad fue introducido con la consola Nintendo Wii U en 2012."
+    }
+  ],
+  "Title": "Videojuegos_Kahoot_II",
+  "Type": "quiz"
+}
