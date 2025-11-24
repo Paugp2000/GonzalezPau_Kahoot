@@ -10,9 +10,7 @@ public class KahootSelector : MonoBehaviour
 {
     public Transform contentPanel; // Assigna el Content del ScrollView
     public GameObject kahootButtonPrefab; // Prefab del botó
-    public string kahootFileLoaded;
-    public GameObject kahootController;
-    public Kahoot kahootSelect;
+    public static string kahootFileLoaded;
 
     void Start()
     {
@@ -36,7 +34,6 @@ public class KahootSelector : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() => {
                 SelectKahoot(file);
                 kahootFileLoaded = file;
-                DontDestroyOnLoad(kahootController);
                 SceneManager.LoadScene(5);
             });
         }
@@ -45,7 +42,6 @@ public class KahootSelector : MonoBehaviour
     void SelectKahoot(string filePath)
     {
         Debug.Log("Kahoot seleccionat: " + filePath);
-        kahootSelect = LoadKahoot(filePath);
     }
 
     public static Kahoot LoadKahoot(string filePath)
