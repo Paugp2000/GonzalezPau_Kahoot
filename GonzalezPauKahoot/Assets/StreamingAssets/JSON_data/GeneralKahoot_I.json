@@ -4,35 +4,35 @@
       "type": "singleSelect",
       "question": "¿Cuál es la capital de Cataluña?",
       "options": ["Girona", "Barcelona", "Tarragona", "Lleida"],
-      "answer": [1],
+      "answer": 1,
       "explanation": "Barcelona es la capital de Cataluña."
     },
     {
       "type": "singleSelect",
       "question": "¿Quién pintó la Mona Lisa?",
       "options": ["Vincent van Gogh", "Salvador Dalí", "Pablo Picasso", "Leonardo da Vinci"],
-      "answer": [3],
+      "answer": 3,
       "explanation": "La Mona Lisa fue pintada por Leonardo da Vinci."
     },
     {
       "type": "singleSelect",
       "question": "¿Qué planeta es conocido como el planeta rojo?",
       "options": ["Venus", "Saturno", "Júpiter", "Marte"],
-      "answer": [3],
+      "answer": 3,
       "explanation": "Marte es conocido como el planeta rojo por su superficie rica en óxido de hierro."
     },
     {
       "type": "singleSelect",
       "question": "¿Cuál es el animal terrestre más rápido?",
       "options": ["León", "Antílope", "Caballo", "Guepardo"],
-      "answer": [3],
+      "answer": 3,
       "explanation": "El guepardo puede alcanzar hasta 100 km/h en distancias cortas."
     },
     {
       "type": "singleSelect",
       "question": "¿Cuál es el océano más grande del mundo?",
       "options": ["Pacífico", "Atlántico", "Índico", "Ártico"],
-      "answer": [0],
+      "answer": 0,
       "explanation": "El océano Pacífico es el más grande del mundo."
     }
   ],

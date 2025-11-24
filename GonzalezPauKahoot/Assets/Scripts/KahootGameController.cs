@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KahootGameController : MonoBehaviour
@@ -18,16 +20,30 @@ public class KahootGameController : MonoBehaviour
     public TextMeshProUGUI textResposta4;
     public TextMeshProUGUI textExplicacio;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI puntuacionText;
+    public Button Resposta1;
+    public Button Resposta2;
+    public Button Resposta3;
+    public Button Resposta4;
     private int numeroPregunta = 0;
+    private bool respuestaValida = false;
+    public static int puntuacion;
+    private int opcio = -1;
 
     private void Start()
     {
         SetSelectedKahoot(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
+        introducirDatosKahoot(kahootActual);
     }
     private void Update()
     {
         QuestionTimer(timeLimit);
-        introducirDatosKahoot(kahootActual);
+        
+        if (numeroPregunta == kahootActual.Quiz.Length)
+        {
+            SceneManager.LoadScene(2);
+        }
+        Debug.Log(opcio);
     }
     IEnumerator QuestionTimer(float timeLimit)
     {
@@ -38,7 +54,7 @@ public class KahootGameController : MonoBehaviour
             timerText.text = Mathf.Ceil(time).ToString();
             yield return null;
         }
-        
+
     }
 
     public void SetSelectedKahoot(Kahoot aKahoot)
@@ -48,11 +64,75 @@ public class KahootGameController : MonoBehaviour
 
     public void introducirDatosKahoot(Kahoot aKahoot)
     {
-         textPregunta.text = aKahoot.Quiz[numeroPregunta].question.ToString();
-         textResposta1.text = aKahoot.Quiz[numeroPregunta].options[0].ToString();
-         textResposta2.text = aKahoot.Quiz[numeroPregunta].options[1].ToString();
-         textResposta3.text = aKahoot.Quiz[numeroPregunta].options[2].ToString();
-         textResposta4.text = aKahoot.Quiz[numeroPregunta].options[3].ToString();
-         textExplicacio.text = aKahoot.Quiz[numeroPregunta].explanation.ToString();
+        textPregunta.text = aKahoot.Quiz[numeroPregunta].question.ToString();
+        textResposta1.text = aKahoot.Quiz[numeroPregunta].options[0].ToString();
+        textResposta2.text = aKahoot.Quiz[numeroPregunta].options[1].ToString();
+        textResposta3.text = aKahoot.Quiz[numeroPregunta].options[2].ToString();
+        textResposta4.text = aKahoot.Quiz[numeroPregunta].options[3].ToString();
+        textExplicacio.text = aKahoot.Quiz[numeroPregunta].explanation.ToString();
+        puntuacionText.text = puntuacion.ToString();
+        
+    }
+    public void comprovarRespuesta(Button button)
+    {
+        
+        if (button.tag == "First")
+        {
+            opcio = 0;
+        }else if (button.tag == "Second")
+        {
+            opcio = 1;
+        }else if (button.tag == "Third")
+        {
+            opcio = 2;
+        }else if (button.tag == "Fourth")
+        {
+            opcio = 3;
+        }
+        else
+        {
+            opcio = -1;
+        }
+        
+        if (kahootActual.Quiz[numeroPregunta].answer == opcio)
+        {
+            respuestaValida = true;
+        }
+        else
+        {
+            respuestaValida= false; 
+        }
+        assignarPuntos(respuestaValida);
+    }
+    public void assignarPuntos(bool respuesta)
+    {
+        if(respuesta == true)
+        {
+            puntuacion += 10;
+        }else if(respuesta == false)
+        {
+            if(puntuacion < 5)
+            {
+                puntuacion -= 0;
+            }
+            else
+            {
+                puntuacion -= 5;
+            }
+        }
+        passarSiguientePregunta();
+    }
+    public void passarSiguientePregunta()
+    {
+        if (numeroPregunta < kahootActual.Quiz.Length+1)
+        {
+            ++numeroPregunta;
+            QuestionTimer(timeLimit);
+            if (numeroPregunta < 5)
+            {
+                introducirDatosKahoot(kahootActual);
+            }
+        }
+        
     }
 }
