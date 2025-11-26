@@ -4,35 +4,35 @@
       "type": "singleSelect",
       "question": "¿En qué año se lanzó el primer videojuego de la saga Super Mario Bros?",
       "options": ["1983", "1985", "1987", "1990"],
-      "answer": [1],
+      "answer": 1,
       "explanation": "Super Mario Bros se lanzó en 1985 para la consola NES."
     },
     {
       "type": "singleSelect",
       "question": "¿Cuál es el nombre del protagonista de la saga The Legend of Zelda?",
       "options": ["Zelda", "Link", "Ganondorf", "Epona"],
-      "answer": [1],
+      "answer": 1,
       "explanation": "El protagonista es Link, mientras que Zelda es la princesa del reino."
     },
     {
       "type": "singleSelect",
       "question": "¿Qué compañía desarrolló el videojuego Minecraft?",
       "options": ["Mojang", "Epic Games", "Valve", "Nintendo"],
-      "answer": [0],
+      "answer": 0,
       "explanation": "Minecraft fue desarrollado originalmente por Mojang en 2009."
     },
     {
       "type": "singleSelect",
       "question": "¿Cuál es el título del primer videojuego de la saga Halo?",
       "options": ["Halo: Reach", "Halo 2", "Halo: Combat Evolved", "Halo Infinite"],
-      "answer": [2],
+      "answer": 2,
       "explanation": "El primer título fue Halo: Combat Evolved, lanzado en 2001."
     },
     {
       "type": "singleSelect",
       "question": "¿Qué personaje de videojuegos es conocido como el 'erizo azul'?",
       "options": ["Crash Bandicoot", "Sonic", "Kirby", "Mega Man"],
-      "answer": [1],
+      "answer": 1,
       "explanation": "Sonic the Hedgehog es el famoso erizo azul de SEGA."
     }
   ],

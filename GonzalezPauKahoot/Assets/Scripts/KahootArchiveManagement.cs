@@ -16,7 +16,7 @@ public class KahootArchiveManagement : MonoBehaviour
         {
             Directory.CreateDirectory(targetPath);
         }
-
+        
         // Copiar tots els JSON
         string[] files = Directory.GetFiles(sourcePath, "*.json");
         foreach (string file in files)
@@ -28,6 +28,10 @@ public class KahootArchiveManagement : MonoBehaviour
             {
                 File.Copy(file, destFile);
                 Debug.Log("Copiat: " + fileName);
+            }else if (File.Exists(destFile))
+            {
+                File.Delete(destFile);
+                File.Copy(file, destFile);
             }
         }
     }

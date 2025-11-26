@@ -13,6 +13,7 @@ public class KahootGameController : MonoBehaviour
     public KahootSelector kahootSelector;
     public string filePath;
     public float timeLimit;
+    private float timeLeft;
     public TextMeshProUGUI textPregunta;
     public TextMeshProUGUI textResposta1;
     public TextMeshProUGUI textResposta2;
@@ -34,10 +35,11 @@ public class KahootGameController : MonoBehaviour
     {
         SetSelectedKahoot(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
         introducirDatosKahoot(kahootActual);
+        timeLeft = timeLimit;
     }
     private void Update()
     {
-        QuestionTimer(timeLimit);
+        QuestionTimer();
         
         if (numeroPregunta == kahootActual.Quiz.Length)
         {
@@ -45,14 +47,12 @@ public class KahootGameController : MonoBehaviour
         }
         Debug.Log(opcio);
     }
-    IEnumerator QuestionTimer(float timeLimit)
+    public void QuestionTimer()
     {
-        float time = timeLimit;
-        while (time > 0)
+        while (timeLeft > 0)
         {
-            time -= Time.deltaTime;
-            timerText.text = Mathf.Ceil(time).ToString();
-            yield return null;
+            timeLeft -= Time.deltaTime;
+            timerText.text = Mathf.Ceil(timeLeft).ToString();
         }
 
     }
@@ -127,7 +127,7 @@ public class KahootGameController : MonoBehaviour
         if (numeroPregunta < kahootActual.Quiz.Length+1)
         {
             ++numeroPregunta;
-            QuestionTimer(timeLimit);
+            timeLeft = timeLimit;
             if (numeroPregunta < 5)
             {
                 introducirDatosKahoot(kahootActual);
