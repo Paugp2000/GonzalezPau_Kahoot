@@ -11,6 +11,7 @@ public class KahootSelector : MonoBehaviour
     public Transform contentPanel; // Assigna el Content del ScrollView
     public GameObject kahootButtonPrefab; // Prefab del botó
     public static string kahootFileLoaded;
+    public XMLWriter xmlWriter;
 
     void Start()
     {

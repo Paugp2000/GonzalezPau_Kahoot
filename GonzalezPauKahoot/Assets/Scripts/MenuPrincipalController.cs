@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuPrincipalController : MonoBehaviour
 {
     int indiceDeEscena = 0;
+    public TMP_InputField colocarNombre;
+    string nombrePlayer;
     public void trasladarASeleccionDeKahoot()
     {
         indiceDeEscena = 3;
@@ -29,5 +32,10 @@ public class MenuPrincipalController : MonoBehaviour
     public void Salir()
     {
         Application.Quit();
+    }
+    public void seleccionarNombrePlayer()
+    {
+        colocarNombre.gameObject.SetActive(true);
+        colocarNombre.text = nombrePlayer;
     }
 }
