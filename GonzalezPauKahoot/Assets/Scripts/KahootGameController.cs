@@ -135,4 +135,8 @@ public class KahootGameController : MonoBehaviour
         }
         
     }
+    public int getPuntuacion()
+    {
+        return puntuacion;
+    }
 }

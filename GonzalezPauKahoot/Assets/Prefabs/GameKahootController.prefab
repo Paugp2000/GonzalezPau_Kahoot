@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7880550217331124839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5232126301657147847}
+  - component: {fileID: 8732269304513935610}
+  m_Layer: 0
+  m_Name: GameKahootController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5232126301657147847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880550217331124839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 418.16534, y: 198.90753, z: -1.1958504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8732269304513935610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880550217331124839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d06f5f4f4a9d344394433e1c4dfb271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kahootActual:
+    Title: 
+    Type: 
+    Quiz: []
+  kahootSelector: {fileID: 6670630751795956266, guid: 0333134805272704bac9f2fd816620f7, type: 3}
+  filePath: 
+  timeLimit: 60
+  textPregunta: {fileID: 0}
+  textResposta1: {fileID: 0}
+  textResposta2: {fileID: 0}
+  textResposta3: {fileID: 0}
+  textResposta4: {fileID: 0}
+  textExplicacio: {fileID: 0}
+  timerText: {fileID: 0}
+  puntuacionText: {fileID: 0}
+  Resposta1: {fileID: 0}
+  Resposta2: {fileID: 0}
+  Resposta3: {fileID: 0}
+  Resposta4: {fileID: 0}

@@ -38,4 +38,8 @@ public class MenuPrincipalController : MonoBehaviour
         colocarNombre.gameObject.SetActive(true);
         colocarNombre.text = nombrePlayer;
     }
+    public string getNombrePlayer()
+    {
+        return nombrePlayer.ToString();
+    }
 }

@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class XMLWriter : MonoBehaviour
 {
-    string nameKahoot;
-    string targetPath = Application.streamingAssetsPath + "XML";
+    
+    public Kahoot kahootActual;
+    string targetPath = Application.streamingAssetsPath + "/XML";
+    string targetNamePath;
+    public MenuPrincipalController menu;
+    public KahootGameController gameController;
 
     private void Awake()
     {
@@ -15,11 +19,28 @@ public class XMLWriter : MonoBehaviour
         {
             Directory.CreateDirectory(targetPath);
         }
-        
+        string targetName = kahootActual.Title;
+        targetNamePath = Application.streamingAssetsPath + "/XML/" + targetName+ "*.xml";
     }
-    public void XMLAddPlayer(string playerName)
+    private void Start()
+    {
+        XMLCreator();
+    }
+    public void XMLCreator()
     {
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load(targetPath);
+        XmlElement root = xmlDoc.CreateElement("Kahoot");
+        xmlDoc.AppendChild(root);
+        XmlElement kahootName = xmlDoc.CreateElement("kahootName");
+        kahootName.InnerText = kahootActual.Title;
+        xmlDoc.AppendChild(kahootName);
+        XmlElement playerName = xmlDoc.CreateElement ("name");
+        playerName.InnerText = menu.getNombrePlayer();
+        root.AppendChild(playerName);
+        XmlElement puntuacion = xmlDoc.CreateElement("puntuacion");
+        puntuacion.InnerText = gameController.getPuntuacion().ToString();
+        root.AppendChild(puntuacion);
+        xmlDoc.Save(targetNamePath);    
     }
 }
