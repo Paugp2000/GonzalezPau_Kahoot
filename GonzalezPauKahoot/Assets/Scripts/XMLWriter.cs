@@ -8,23 +8,34 @@ public class XMLWriter : MonoBehaviour
 {
     
     public Kahoot kahootActual;
-    string targetPath = Application.streamingAssetsPath + "/XML";
-    string targetNamePath;
+    string targetPath;
+    public string targetNamePath;
     public MenuPrincipalController menu;
     public KahootGameController gameController;
 
     private void Awake()
     {
+        targetPath = Application.persistentDataPath + "/XML";
         if (!Directory.Exists(targetPath))
         {
             Directory.CreateDirectory(targetPath);
         }
-        string targetName = kahootActual.Title;
-        targetNamePath = Application.streamingAssetsPath + "/XML/" + targetName+ "*.xml";
+       
     }
     private void Start()
     {
+        setKahootActual(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
+        string targetName = kahootActual.Title;
+        targetNamePath = Application.persistentDataPath + "/XML" + targetName + ".xml";
         XMLCreator();
+    }
+    public void setKahootActual(Kahoot akahoot)
+    {
+        kahootActual = akahoot;
+    }
+    public Kahoot getKahootActual()
+    {
+        return kahootActual;
     }
     public void XMLCreator()
     {

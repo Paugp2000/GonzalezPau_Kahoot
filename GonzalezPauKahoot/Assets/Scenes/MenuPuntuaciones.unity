@@ -214,6 +214,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1100889373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6447786732958842809, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+  m_PrefabInstance: {fileID: 1393236815034472636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1100889374 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3595213020135326981, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+  m_PrefabInstance: {fileID: 1393236815034472636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100889375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100889373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!1 &1596471233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7748846690876015841, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+  m_PrefabInstance: {fileID: 1393236815034472636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596471238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287534326422281893, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+  m_PrefabInstance: {fileID: 1393236815034472636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596471233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958078e70df17254da845cfdf3e208f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1596471239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596471233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7666e1157f51e146a27ca19da101084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  writer: {fileID: 1596471238}
+  kahootActual:
+    Title: 
+    Type: 
+    Quiz: []
+  contentPanel: {fileID: 1100889374}
+  targetPath: 
+  puntuacionTotal: []
+  puntuacion:
+    KahootName: 
+    PlayerName: 
+    puntuacionPlayer: 0
+  textPrefab: {fileID: 4289720864143739456, guid: 220d24d3fea2737439bdaa372e957696, type: 3}
+--- !u!114 &1596471240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596471233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7774f1bc5da8d9945b3a34a7d8ac6ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2099278449
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +518,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7748846690876015841, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1596471239}
+    - targetCorrespondingSourceObject: {fileID: 7748846690876015841, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1596471240}
+    - targetCorrespondingSourceObject: {fileID: 6447786732958842809, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1100889375}
   m_SourcePrefab: {fileID: 100100000, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
