@@ -9,7 +9,7 @@ public class XMLDataManager : MonoBehaviour
     string targetPath;
     void Awake()
     {
-        sourcePath = Path.Combine(Application.streamingAssetsPath, "XML");
+        sourcePath = Path.Combine(Application.persistentDataPath, "XML");
         targetPath = Path.Combine(Application.streamingAssetsPath, "XML");
 
         if (!Directory.Exists(targetPath))

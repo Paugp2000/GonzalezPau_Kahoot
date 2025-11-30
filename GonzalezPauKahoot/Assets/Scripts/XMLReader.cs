@@ -17,8 +17,10 @@ public class XMLReader : MonoBehaviour
 
     public void Start()
     {
-        targetPath = writer.targetNamePath;
+        puntuacionTotal = new List<Puntuaciones>();
+        targetPath = writer.targetFilePath;
         readXML(targetPath);
+        
     }
     public void getKahootActual()
     {
@@ -29,19 +31,18 @@ public class XMLReader : MonoBehaviour
         puntuacion = new Puntuaciones();
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load(path);
-
-        XmlNodeList puntuaciones = xmlDoc.GetElementsByTagName("Kahoot");
-        foreach (XmlNode node in puntuaciones)
+        XmlNode root = xmlDoc.DocumentElement;
+        foreach (XmlNode node in root.ChildNodes)
         {
-            if(node.Name == "kahootName")
+            if (node.Name == "kahootName")
             {
                 puntuacion.KahootName = node.InnerText;
             }
-            if(node.Name == "name")
+            if (node.Name == "name")
             {
                 puntuacion.PlayerName = node.InnerText; 
             }
-            if(node.Name == "puntuacion")
+            if (node.Name == "puntuacion")
             {
                 puntuacion.puntuacionPlayer = int.Parse(node.InnerText);
             }
