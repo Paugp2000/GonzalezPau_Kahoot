@@ -11,6 +11,7 @@ public class XMLWriter : MonoBehaviour
     string targetFolderPath;
     public string targetFilePath;
     public KahootGameController gameController;
+    public XMLReader reader;    
 
     private void Awake()
     {
@@ -26,9 +27,15 @@ public class XMLWriter : MonoBehaviour
         setKahootActual(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
         string targetName = kahootActual.Title;
         targetFilePath = Application.persistentDataPath + "/XML/" + targetName + ".xml";
-        using FileStream stream = File.Create(targetFilePath);
-        stream.Close();
-        XMLCreator();
+        if (!File.Exists(targetFilePath)) {
+            using FileStream stream = File.Create(targetFilePath);
+            stream.Close();
+            XMLCreator();
+        }
+        else
+        {
+            XMLAdder();
+        }
     }
     public void setKahootActual(Kahoot akahoot)
     {
@@ -53,6 +60,25 @@ public class XMLWriter : MonoBehaviour
         puntuacion.InnerText = gameController.getPuntuacion().ToString();
         root.AppendChild(puntuacion);
         xmlDoc.Save(targetFilePath);
-    
+
+    }
+    public void XMLAdder()
+    {
+        reader.puntuacion = new Puntuaciones();
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.Load(targetFilePath);
+        XmlNode root = xmlDoc.DocumentElement;
+        foreach (XmlNode node in root.ChildNodes)
+        {
+            if (node.Name == "name")
+            {
+                reader.puntuacion.PlayerName[reader.contador] = MenuPrincipalController.Instance.getNombrePlayer();
+            }
+            if (node.Name == "puntuacion")
+            {
+                reader.puntuacion.puntuacionPlayer[reader.contador] = gameController.getPuntuacion();
+            }
+        }
+
     }
 }

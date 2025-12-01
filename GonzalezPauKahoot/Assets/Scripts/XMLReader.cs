@@ -14,6 +14,8 @@ public class XMLReader : MonoBehaviour
     public List <Puntuaciones> puntuacionTotal;
     public Puntuaciones puntuacion;
     public GameObject textPrefab;
+    public TextMeshProUGUI kahootEscogido;
+    public int contador = 0;
 
     public void Start()
     {
@@ -21,7 +23,6 @@ public class XMLReader : MonoBehaviour
         targetPath = writer.targetFilePath;
         readXML(targetPath);
         omplePuntuacions();
-        
     }
     public void getKahootActual()
     {
@@ -41,21 +42,23 @@ public class XMLReader : MonoBehaviour
             }
             if (node.Name == "name")
             {
-                puntuacion.PlayerName = node.InnerText; 
+                puntuacion.PlayerName[contador] = node.InnerText; 
             }
             if (node.Name == "puntuacion")
             {
-                puntuacion.puntuacionPlayer = int.Parse(node.InnerText);
+                puntuacion.puntuacionPlayer[contador] = int.Parse(node.InnerText);
             }
         }
-        puntuacionTotal.Add(puntuacion);
+        contador++;
     }
     public void omplePuntuacions()
     {
-        foreach(Puntuaciones puntuacion in puntuacionTotal) 
+        kahootEscogido.text = puntuacion.KahootName.ToString();
+        for(int i = 0; i<puntuacion.puntuacionPlayer.Length; i++)
         {
             GameObject text = Instantiate(textPrefab, contentPanel);
-            text.GetComponent<TextMeshProUGUI>().text = puntuacion.PlayerName + " : " + puntuacion.puntuacionPlayer;
+            text.GetComponent<TextMeshProUGUI>().text = puntuacion.PlayerName[i] + " : " + puntuacion.puntuacionPlayer[i];
         }
+        
     }
 }

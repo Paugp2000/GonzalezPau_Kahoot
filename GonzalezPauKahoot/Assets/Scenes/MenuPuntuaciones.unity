@@ -291,6 +291,7 @@ MonoBehaviour:
     PlayerName: 
     puntuacionPlayer: 0
   textPrefab: {fileID: 4289720864143739456, guid: 220d24d3fea2737439bdaa372e957696, type: 3}
+  kahootEscogido: {fileID: 1393236815034472637}
 --- !u!114 &1596471240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +460,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595213020135326981, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 467.92
+      objectReference: {fileID: 0}
     - target: {fileID: 4211801025049596674, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -473,6 +478,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4391021223246060593, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391021223246060593, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5076663030368918533, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
@@ -515,6 +524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas puntuaciones
       objectReference: {fileID: 0}
+    - target: {fileID: 8465405740037007616, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.16651773
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -529,6 +542,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1100889375}
   m_SourcePrefab: {fileID: 100100000, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+--- !u!114 &1393236815034472637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8465405740037007616, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+  m_PrefabInstance: {fileID: 1393236815034472636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

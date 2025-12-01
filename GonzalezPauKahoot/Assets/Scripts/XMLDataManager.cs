@@ -31,8 +31,7 @@ public class XMLDataManager : MonoBehaviour
             }
             else if (File.Exists(destFile))
             {
-                File.Delete(destFile);
-                File.Copy(file, destFile);
+                File.Replace(file, destFile, fileName);
             }
         }
     }
