@@ -20,6 +20,7 @@ public class XMLReader : MonoBehaviour
         puntuacionTotal = new List<Puntuaciones>();
         targetPath = writer.targetFilePath;
         readXML(targetPath);
+        omplePuntuacions();
         
     }
     public void getKahootActual()

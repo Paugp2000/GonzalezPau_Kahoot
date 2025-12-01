@@ -10,7 +10,6 @@ public class XMLWriter : MonoBehaviour
     public Kahoot kahootActual;
     string targetFolderPath;
     public string targetFilePath;
-    public MenuPrincipalController menu;
     public KahootGameController gameController;
 
     private void Awake()
@@ -27,6 +26,8 @@ public class XMLWriter : MonoBehaviour
         setKahootActual(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
         string targetName = kahootActual.Title;
         targetFilePath = Application.persistentDataPath + "/XML/" + targetName + ".xml";
+        using FileStream stream = File.Create(targetFilePath);
+        stream.Close();
         XMLCreator();
     }
     public void setKahootActual(Kahoot akahoot)
@@ -40,19 +41,18 @@ public class XMLWriter : MonoBehaviour
     public void XMLCreator()
     {
         XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load(targetFilePath);
         XmlElement root = xmlDoc.CreateElement("Kahoot");
         xmlDoc.AppendChild(root);
         XmlElement kahootName = xmlDoc.CreateElement("kahootName");
         kahootName.InnerText = kahootActual.Title;
         root.AppendChild(kahootName);
         XmlElement playerName = xmlDoc.CreateElement ("name");
-        playerName.InnerText = menu.getNombrePlayer();
+        playerName.InnerText = MenuPrincipalController.Instance.getNombrePlayer();
         root.AppendChild(playerName);
         XmlElement puntuacion = xmlDoc.CreateElement("puntuacion");
         puntuacion.InnerText = gameController.getPuntuacion().ToString();
         root.AppendChild(puntuacion);
         xmlDoc.Save(targetFilePath);
-        
+    
     }
 }

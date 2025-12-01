@@ -8,11 +8,28 @@ public class MenuPrincipalController : MonoBehaviour
 {
     int indiceDeEscena = 0;
     public TMP_InputField colocarNombre;
-    string nombrePlayer;
+    public static string nombrePlayer;
+
+    public static MenuPrincipalController Instance;
+    private void Awake()
+    {
+        if (Instance == null){
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    
     public void trasladarASeleccionDeKahoot()
     {
+        //Sacar valor del input field e introducirlo en nombrePLayer
+        nombrePlayer = colocarNombre.textComponent.text;
         indiceDeEscena = 3;
         SceneManager.LoadScene(indiceDeEscena);
+        gameObject.SetActive(false);
+        DontDestroyOnLoad(gameObject);
     }
     public void trasladarAPantallaDePuntuaciones()
     {
@@ -36,7 +53,6 @@ public class MenuPrincipalController : MonoBehaviour
     public void seleccionarNombrePlayer()
     {
         colocarNombre.gameObject.SetActive(true);
-        colocarNombre.text = nombrePlayer;
     }
     public string getNombrePlayer()
     {
