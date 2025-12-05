@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2ce77c1eb4582bb4fb451170fa1eb2ca
+  - enabled: 1
+    path: Assets/Scenes/ConsultorDePuntuaciones.unity
+    guid: 18f49f888a317f34c84cc2d428cd2548
+  - enabled: 1
+    path: Assets/Scenes/ResultadosPuntuaciones.unity
+    guid: 7075b7afb0ea2db42be12bf0d8f8924b
   m_configObjects: {}

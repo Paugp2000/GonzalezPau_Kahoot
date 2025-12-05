@@ -33,8 +33,8 @@ public class MenuPrincipalController : MonoBehaviour
     }
     public void trasladarAPantallaDePuntuaciones()
     {
-        indiceDeEscena = 2;
-        SceneManager.LoadScene(indiceDeEscena);
+        SceneManager.LoadScene("ConsultorDePuntuaciones");
+       
     }
     public void trasladarASobreMi()
     {
