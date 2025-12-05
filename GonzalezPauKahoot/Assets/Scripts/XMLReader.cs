@@ -40,21 +40,26 @@ public class XMLReader : MonoBehaviour
             {
                 puntuacion.KahootName = node.InnerText;
             }
-            if (node.Name == "name")
+            else if (node.Name == "player")
             {
-                puntuacion.PlayerName[contador] = node.InnerText; 
-            }
-            if (node.Name == "puntuacion")
-            {
-                puntuacion.puntuacionPlayer[contador] = int.Parse(node.InnerText);
+                string nombre = "";
+                int puntos = 0;
+
+                foreach (XmlNode child in node.ChildNodes)
+                {
+                    if (child.Name == "name") nombre = child.InnerText;
+                    if (child.Name == "puntuacion") puntos = int.Parse(child.InnerText);
+                }
+
+                puntuacion.PlayerName.Add(nombre);
+                puntuacion.puntuacionPlayer.Add(puntos);
             }
         }
-        contador++;
     }
     public void omplePuntuacions()
     {
         kahootEscogido.text = puntuacion.KahootName.ToString();
-        for(int i = 0; i<puntuacion.puntuacionPlayer.Length; i++)
+        for(int i = 0; i<puntuacion.puntuacionPlayer.Count; i++)
         {
             GameObject text = Instantiate(textPrefab, contentPanel);
             text.GetComponent<TextMeshProUGUI>().text = puntuacion.PlayerName[i] + " : " + puntuacion.puntuacionPlayer[i];

@@ -23,6 +23,7 @@ public class XMLDataManager : MonoBehaviour
         {
             string fileName = Path.GetFileName(file);
             string destFile = Path.Combine(targetPath, fileName);
+           
 
             if (!File.Exists(destFile))
             {
@@ -31,7 +32,7 @@ public class XMLDataManager : MonoBehaviour
             }
             else if (File.Exists(destFile))
             {
-                File.Replace(file, destFile, fileName);
+                 
             }
         }
     }

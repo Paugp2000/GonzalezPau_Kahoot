@@ -48,37 +48,61 @@ public class XMLWriter : MonoBehaviour
     public void XMLCreator()
     {
         XmlDocument xmlDoc = new XmlDocument();
-        XmlElement root = xmlDoc.CreateElement("Kahoot");
+
+        // Crear nodo raíz <kahoot>
+        XmlElement root = xmlDoc.CreateElement("kahoot");
         xmlDoc.AppendChild(root);
+
+        // Añadir <kahootName>
         XmlElement kahootName = xmlDoc.CreateElement("kahootName");
         kahootName.InnerText = kahootActual.Title;
         root.AppendChild(kahootName);
-        XmlElement playerName = xmlDoc.CreateElement ("name");
+
+        // Crear nodo <player>
+        XmlElement player = xmlDoc.CreateElement("player");
+
+        // Añadir <name> dentro de <player>
+        XmlElement playerName = xmlDoc.CreateElement("name");
         playerName.InnerText = MenuPrincipalController.Instance.getNombrePlayer();
-        root.AppendChild(playerName);
+        player.AppendChild(playerName);
+
+        // Añadir <puntuacion> dentro de <player>
         XmlElement puntuacion = xmlDoc.CreateElement("puntuacion");
         puntuacion.InnerText = gameController.getPuntuacion().ToString();
-        root.AppendChild(puntuacion);
-        xmlDoc.Save(targetFilePath);
+        player.AppendChild(puntuacion);
 
+        // Finalmente añadir <player> al root
+        root.AppendChild(player);
+
+        // Guardar archivo
+        xmlDoc.Save(targetFilePath);
     }
     public void XMLAdder()
     {
-        reader.puntuacion = new Puntuaciones();
+        // Cargar el XML existente
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load(targetFilePath);
-        XmlNode root = xmlDoc.DocumentElement;
-        foreach (XmlNode node in root.ChildNodes)
-        {
-            if (node.Name == "name")
-            {
-                reader.puntuacion.PlayerName[reader.contador] = MenuPrincipalController.Instance.getNombrePlayer();
-            }
-            if (node.Name == "puntuacion")
-            {
-                reader.puntuacion.puntuacionPlayer[reader.contador] = gameController.getPuntuacion();
-            }
-        }
 
+        // Obtener el nodo raíz <kahoot>
+        XmlNode root = xmlDoc.DocumentElement;
+
+        // Crear nuevo nodo <player>
+        XmlElement player = xmlDoc.CreateElement("player");
+
+        // Crear <name>
+        XmlElement playerName = xmlDoc.CreateElement("name");
+        playerName.InnerText = MenuPrincipalController.Instance.getNombrePlayer();
+        player.AppendChild(playerName);
+
+        // Crear <puntuacion>
+        XmlElement puntuacion = xmlDoc.CreateElement("puntuacion");
+        puntuacion.InnerText = gameController.getPuntuacion().ToString();
+        player.AppendChild(puntuacion);
+
+        // Añadir <player> al root
+        root.AppendChild(player);
+
+        // Guardar cambios en el archivo
+        xmlDoc.Save(targetFilePath);
     }
 }

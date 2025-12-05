@@ -250,6 +250,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1100889376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100889373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!1 &1596471233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7748846690876015841, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
@@ -288,10 +302,11 @@ MonoBehaviour:
   puntuacionTotal: []
   puntuacion:
     KahootName: 
-    PlayerName: 
-    puntuacionPlayer: 0
+    PlayerName: []
+    puntuacionPlayer: 
   textPrefab: {fileID: 4289720864143739456, guid: 220d24d3fea2737439bdaa372e957696, type: 3}
   kahootEscogido: {fileID: 1393236815034472637}
+  contador: 0
 --- !u!114 &1596471240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,8 +476,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3595213020135326981, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595213020135326981, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 467.92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4211801025049596674, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -541,6 +560,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6447786732958842809, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1100889375}
+    - targetCorrespondingSourceObject: {fileID: 6447786732958842809, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1100889376}
   m_SourcePrefab: {fileID: 100100000, guid: 0fceba9da3a9e4542a43a56d702596e4, type: 3}
 --- !u!114 &1393236815034472637 stripped
 MonoBehaviour:

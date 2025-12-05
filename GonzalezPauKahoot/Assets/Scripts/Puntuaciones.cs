@@ -7,6 +7,6 @@ using UnityEngine;
 public class Puntuaciones 
 {
     public string KahootName;
-    public string[] PlayerName;
-    public int[] puntuacionPlayer;
+    public List<string> PlayerName = new List<string>();
+    public List<int> puntuacionPlayer = new List<int>();
 }

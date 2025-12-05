@@ -1,5 +1,39 @@
-<Kahoot>
+<kahoot>
   <kahootName>GeneralKahoot_I</kahootName>
-  <name>Pau ​</name>
-  <puntuacion>5</puntuacion>
-</Kahoot>
+  <player>
+    <name>Marina​</name>
+    <puntuacion>50</puntuacion>
+  </player>
+  <player>
+    <name>Carmen​</name>
+    <puntuacion>35</puntuacion>
+  </player>
+  <player>
+    <name>Pau​</name>
+    <puntuacion>35</puntuacion>
+  </player>
+  <player>
+    <name>Angel​</name>
+    <puntuacion>50</puntuacion>
+  </player>
+  <player>
+    <name>Maria​</name>
+    <puntuacion>10</puntuacion>
+  </player>
+  <player>
+    <name>Manuel​</name>
+    <puntuacion>50</puntuacion>
+  </player>
+  <player>
+    <name>David​</name>
+    <puntuacion>10</puntuacion>
+  </player>
+  <player>
+    <name>Who​</name>
+    <puntuacion>20</puntuacion>
+  </player>
+  <player>
+    <name>Pau​</name>
+    <puntuacion>35</puntuacion>
+  </player>
+</kahoot>
