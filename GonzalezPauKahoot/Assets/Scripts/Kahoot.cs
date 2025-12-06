@@ -19,4 +19,5 @@ public class Question
     public string[] options;   // Opcions de resposta
     public int answer;       // Índex de la resposta correcta (pot ser més d’una)
     public string explanation; // Explicació de la resposta
+    public int tiempo; // Temps de la pregunta
 }

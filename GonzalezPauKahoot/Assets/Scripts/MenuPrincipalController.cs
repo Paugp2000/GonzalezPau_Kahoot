@@ -49,6 +49,10 @@ public class MenuPrincipalController : MonoBehaviour
     {
         Application.Quit();
     }
+    public void trasladarACreadorDeKahoots()
+    {
+        SceneManager.LoadScene("CreadorDeKahoots");
+    }
     public void seleccionarNombrePlayer()
     {
         colocarNombre.gameObject.SetActive(true);
