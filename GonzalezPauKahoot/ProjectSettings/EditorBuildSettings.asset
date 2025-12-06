@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ResultadosPuntuaciones.unity
     guid: 7075b7afb0ea2db42be12bf0d8f8924b
+  - enabled: 1
+    path: Assets/Scenes/ErrorMostrar.unity
+    guid: 8b9ba11896640dc44a3cf549f57bed9d
   m_configObjects: {}

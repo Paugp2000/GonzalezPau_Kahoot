@@ -28,8 +28,7 @@ public class MenuPrincipalController : MonoBehaviour
         nombrePlayer = colocarNombre.textComponent.text;
         indiceDeEscena = 3;
         SceneManager.LoadScene(indiceDeEscena);
-        gameObject.SetActive(false);
-        DontDestroyOnLoad(gameObject);
+        
     }
     public void trasladarAPantallaDePuntuaciones()
     {

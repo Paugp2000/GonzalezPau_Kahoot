@@ -33,28 +33,37 @@ public class KahootGameController : MonoBehaviour
 
     private void Start()
     {
-        SetSelectedKahoot(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
-        introducirDatosKahoot(kahootActual);
-        timeLeft = timeLimit;
+        if (KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded) == null)
+        {
+            SceneManager.LoadScene("MenuErrores");
+        }
+        else
+        {
+            timeLimit = 20;
+            SetSelectedKahoot(KahootSelector.LoadKahoot(KahootSelector.kahootFileLoaded));
+            introducirDatosKahoot(kahootActual);
+            timeLeft = timeLimit;
+        }
+       
     }
     private void Update()
     {
-        QuestionTimer();
-        
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            timerText.text = Mathf.Ceil(timeLeft).ToString();
+        }
+        else
+        {
+            timeLeft = 0;
+            passarSiguientePregunta();
+        }
+
         if (numeroPregunta == kahootActual.Quiz.Length)
         {
             SceneManager.LoadScene(2);
         }
         Debug.Log(opcio);
-    }
-    public void QuestionTimer()
-    {
-        while (timeLeft > 0)
-        {
-            timeLeft -= Time.deltaTime;
-            timerText.text = Mathf.Ceil(timeLeft).ToString();
-        }
-
     }
 
     public void SetSelectedKahoot(Kahoot aKahoot)

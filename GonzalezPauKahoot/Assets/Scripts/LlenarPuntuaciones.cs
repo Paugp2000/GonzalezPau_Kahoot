@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LlenarPuntuaciones : MonoBehaviour
 {
@@ -29,5 +30,9 @@ public class LlenarPuntuaciones : MonoBehaviour
             text.GetComponent<TextMeshProUGUI>().text = puntuacionAMostrar.PlayerName[i] + " : " + puntuacionAMostrar.puntuacionPlayer[i];
         }
 
+    }
+    public void volverAlMenu()
+    {
+        SceneManager.LoadScene("MenuPrincipal");
     }
 }

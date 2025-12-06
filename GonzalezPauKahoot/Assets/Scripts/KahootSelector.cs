@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -46,8 +47,27 @@ public class KahootSelector : MonoBehaviour
 
     public static Kahoot LoadKahoot(string filePath)
     {
-        string json = File.ReadAllText(filePath);
-        Kahoot kahoot = JsonUtility.FromJson<Kahoot>(json);
-        return kahoot;
+        try
+        {
+            string json = File.ReadAllText(filePath);
+            Kahoot kahoot = JsonUtility.FromJson<Kahoot>(json);
+            return kahoot;
+        }
+        catch (Exception ex)
+        {
+            LogJsonError(ex,filePath);
+            return null;
+        }
+    }
+    public static void LogJsonError(Exception ex, string filePath)
+    {
+        string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        string logFileName = $"Error_{timestamp}.txt";
+        string logPath = Path.Combine(Application.persistentDataPath, "ErrorLogs", logFileName);
+
+        Directory.CreateDirectory(Path.GetDirectoryName(logPath));
+
+        string content = $"Fitxer: {filePath}\nError: {ex.GetType().Name}\nMissatge: {ex.Message}\nData: {DateTime.Now}";
+        File.WriteAllText(logPath, content);
     }
 }

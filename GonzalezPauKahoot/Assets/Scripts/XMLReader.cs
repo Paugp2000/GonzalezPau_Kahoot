@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Xml;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class XMLReader : MonoBehaviour
@@ -30,31 +33,40 @@ public class XMLReader : MonoBehaviour
     }
     public void readXML(string path)
     {
-        puntuacion = new Puntuaciones();
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load(path);
-        XmlNode root = xmlDoc.DocumentElement;
-        foreach (XmlNode node in root.ChildNodes)
+        try
         {
-            if (node.Name == "kahootName")
+            puntuacion = new Puntuaciones();
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(path);
+            XmlNode root = xmlDoc.DocumentElement;
+            foreach (XmlNode node in root.ChildNodes)
             {
-                puntuacion.KahootName = node.InnerText;
-            }
-            else if (node.Name == "player")
-            {
-                string nombre = "";
-                int puntos = 0;
-
-                foreach (XmlNode child in node.ChildNodes)
+                if (node.Name == "kahootName")
                 {
-                    if (child.Name == "name") nombre = child.InnerText;
-                    if (child.Name == "puntuacion") puntos = int.Parse(child.InnerText);
+                    puntuacion.KahootName = node.InnerText;
                 }
+                else if (node.Name == "player")
+                {
+                    string nombre = "";
+                    int puntos = 0;
 
-                puntuacion.PlayerName.Add(nombre);
-                puntuacion.puntuacionPlayer.Add(puntos);
+                    foreach (XmlNode child in node.ChildNodes)
+                    {
+                        if (child.Name == "name") nombre = child.InnerText;
+                        if (child.Name == "puntuacion") puntos = int.Parse(child.InnerText);
+                    }
+
+                    puntuacion.PlayerName.Add(nombre);
+                    puntuacion.puntuacionPlayer.Add(puntos);
+                }
             }
         }
+        catch (Exception ex)
+        {
+            HandleXmlError(ex, path);
+            MostrarLeaderboardBuida();
+        }
+        
     }
     public void omplePuntuacions()
     {
@@ -65,5 +77,20 @@ public class XMLReader : MonoBehaviour
             text.GetComponent<TextMeshProUGUI>().text = puntuacion.PlayerName[i] + " : " + puntuacion.puntuacionPlayer[i];
         }
         
+    }
+    void HandleXmlError(Exception ex, string filePath)
+    {
+        string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        string logFileName = $"ErrorXML_{timestamp}.txt";
+        string logPath = Path.Combine(Application.persistentDataPath, "ErrorLogs", logFileName);
+
+        Directory.CreateDirectory(Path.GetDirectoryName(logPath));
+
+        string content = $"Fitxer: {filePath}\nError: {ex.GetType().Name}\nMissatge: {ex.Message}\nData: {DateTime.Now}\nComentari: Error en la lectura del fitxer XML. Comprova si el format és correcte o si el fitxer està corrupte.";
+        File.WriteAllText(logPath, content);
+    }
+    void MostrarLeaderboardBuida()
+    {
+        kahootEscogido.text = "Error";
     }
 }

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class XMLDataManager : MonoBehaviour
 {
     string sourcePath;
     string targetPath;
+    
     void Awake()
     {
         sourcePath = Path.Combine(Application.persistentDataPath, "XML");
@@ -35,6 +37,10 @@ public class XMLDataManager : MonoBehaviour
                  
             }
         }
+    }
+    public void volverAlMenu()
+    {
+        SceneManager.LoadScene("MenuPrincipal");
     }
 }
 
