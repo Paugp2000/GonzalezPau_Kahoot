@@ -59,7 +59,7 @@ public class KahootGameController : MonoBehaviour
             passarSiguientePregunta();
         }
 
-        if (numeroPregunta == kahootActual.Quiz.Length)
+        if (numeroPregunta == kahootActual.Quiz.Count)
         {
             SceneManager.LoadScene(2);
         }
@@ -133,7 +133,7 @@ public class KahootGameController : MonoBehaviour
     }
     public void passarSiguientePregunta()
     {
-        if (numeroPregunta < kahootActual.Quiz.Length+1)
+        if (numeroPregunta < kahootActual.Quiz.Count+1)
         {
             ++numeroPregunta;
             timeLeft = timeLimit;

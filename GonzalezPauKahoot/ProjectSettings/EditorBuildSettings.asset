@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ErrorMostrar.unity
     guid: 8b9ba11896640dc44a3cf549f57bed9d
+  - enabled: 1
+    path: Assets/Scenes/CreadorDeKahoots.unity
+    guid: 5caf49dbaa3bdf84190455f70a8b765c
   m_configObjects: {}

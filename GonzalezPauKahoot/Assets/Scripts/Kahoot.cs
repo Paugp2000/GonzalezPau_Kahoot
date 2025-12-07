@@ -8,7 +8,7 @@ public class Kahoot
 {
     public string Title;       // Nom del kahoot
     public string Type;        // Tipus (quiz, examen, etc.)
-    public Question[] Quiz; // Llista de preguntes
+    public List <Question> Quiz; // Llista de preguntes
 }
 
 [Serializable]
